@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using System;
 using TestApplication.UiTests.Drivers;
 
 namespace TestApplication.UiTests.PageObjects
@@ -8,13 +10,7 @@ namespace TestApplication.UiTests.PageObjects
         private readonly ConfigurationDriver _configurationDriver;
         public HomePage(WebDriver driver, ConfigurationDriver configurationDriver) : base(driver) {
             _configurationDriver = configurationDriver;
-        }
-
-        public void GoToHomePage()
-        {
-            string baseUrl = _configurationDriver.SeleniumBaseUrl;
             webDriver.Current.Manage().Window.Maximize();
-            webDriver.Current.Navigate().GoToUrl($"{baseUrl}/");
         }
 
         public void SelectedBoxCategory ()
@@ -23,11 +19,93 @@ namespace TestApplication.UiTests.PageObjects
             categoryIdwrp.Click();
         }
 
-        public void SelectedCategory()
+        public void SelectedCategory(string text)
         {
-            var categoryIdoption = FindsBy(By.Id("categoryId-wrp-option-9299"));
-            EnableOfElement(categoryIdoption);
-            categoryIdoption.Click();
+            string[] lstCatelogy = text.Split(';');
+
+            if (lstCatelogy.Length > 0)
+            {
+                int index = lstCatelogy.Length - 1;
+                IWebElement treeCategory = null;
+                IWebElement category = null;
+
+                var selectBoxCategory = FindsBy(By.CssSelector("div[id='categoryId-wrpwrapper'] ul[class='j-selectbox__ul']"));
+                DisplayedOfElement(selectBoxCategory);
+
+                var lstCategory = selectBoxCategory.FindElements(By.CssSelector("li[class^='j-selectbox__li']"));
+                
+                foreach (var item in lstCategory)
+                {
+                    if (item.Text.Trim() == lstCatelogy[0]) {
+                        treeCategory = item;
+                        break;
+                    }
+                }
+
+                if (index == 0)
+                {
+                    DisplayedOfElement(treeCategory);
+                    category = webDriver.Wait.Until<IWebElement>(driver =>
+                    {
+                        return treeCategory.FindElement(By.CssSelector("div[id^='categoryId-wrp-option-']"));
+                    });
+                }
+                else {
+
+                    DisplayedOfElement(treeCategory);
+                    var expandIcon = webDriver.Wait.Until<IWebElement>(driver =>
+                    {
+                        return treeCategory.FindElement(By.CssSelector("span[class$='j-selectbox__down-icon']"));
+                    });
+
+                    EnableOfElement(expandIcon);
+                    Actions actions = new Actions(webDriver.Current);
+                    actions.MoveToElement(expandIcon).Click();
+                    actions.Perform();
+
+                    for (int i = 1; i <= index; i++)
+                    {
+                        DisplayedOfElement(treeCategory);
+                        var lstCategoryTemp = treeCategory.FindElements(By.CssSelector("li"));
+                        foreach (var item in lstCategoryTemp)
+                        {
+                            if (item.GetAttribute("textContent").Trim() == lstCatelogy[i])
+                            {
+                                treeCategory = item;
+                                break;
+                            }
+                        }
+
+                        if (i == index)
+                        {
+                            category = webDriver.Wait.Until<IWebElement>(driver =>
+                            {
+                                return treeCategory.FindElement(By.CssSelector("div[id^='categoryId-wrp-option-']"));
+                            });
+                            break;
+                        }
+                        else
+                        {
+                            expandIcon = webDriver.Wait.Until<IWebElement>(driver =>
+                            {
+                                return treeCategory.FindElement(By.CssSelector("span[class$='j-selectbox__down-icon']"));
+                            });
+
+                            EnableOfElement(expandIcon);
+                            actions = new Actions(webDriver.Current);
+                            actions.MoveToElement(expandIcon).Click();
+                            actions.Perform();
+                        }
+                    }
+                }
+
+                EnableOfElement(category);
+                Actions actionsCategory = new Actions(webDriver.Current);
+                actionsCategory.MoveToElement(category).Click();
+                actionsCategory.Perform();
+            }
+
+         
         }
 
         public void EnterSearchQuery(string text)
@@ -50,9 +128,11 @@ namespace TestApplication.UiTests.PageObjects
             boxSearchDistance.Click();
         }
 
-        public void SelectedSearchDistance()
+        public void SelectedSearchDistance(string text)
         {
-            var searchDistance = FindsBy(By.Id("srch-radius-wrp-option-250"));
+           var numberRadius = text.Replace("KM", "");
+            Console.WriteLine("---------tttttttttttt-------:" + "srch-radius-wrp-option-" + numberRadius.Trim() + "");
+           var searchDistance = FindsBy(By.Id("srch-radius-wrp-option-"+ numberRadius.Trim()+""));
             searchDistance.Click();
         }
 

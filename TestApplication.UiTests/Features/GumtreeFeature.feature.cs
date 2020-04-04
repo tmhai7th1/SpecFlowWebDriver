@@ -75,15 +75,15 @@ namespace TestApplication.UiTests.Features
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree", new string[] {
-                "Browser_Chrome",
+                "Browser_Firefox",
                 "BasePage"}, SourceLine=9)]
         public virtual void VerifySearchEngineFromGumtree()
         {
             string[] tagsOfScenario = new string[] {
-                    "Browser_Chrome",
+                    "Browser_Firefox",
                     "BasePage"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify search engine from Gumtree", null, new string[] {
-                        "Browser_Chrome",
+                        "Browser_Firefox",
                         "BasePage"});
 #line 10
 this.ScenarioInitialize(scenarioInfo);
@@ -106,22 +106,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 11
- testRunner.Given("I go on Gumtree website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("I search Categories \'Cars & Vehicles;Cars, Vans & Utes\' and Keywords \'Toyota\' and" +
+                        " Location \'Wollongong Region, NSW\' and Radius \'250 KM\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.When("I search on Gumtree", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I click on page mumber of the pager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.And("I click on Page Number of the pager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on a random advert on this page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.And("I click  on a random advert on this page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on Images button on advert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
- testRunner.And("I click  on Images button on advert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
- testRunner.Then("I cycle through all available images by clicking the right  slider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I cycle through all available images by clicking the right slider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

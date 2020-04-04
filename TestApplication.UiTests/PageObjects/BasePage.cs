@@ -30,5 +30,13 @@ namespace TestApplication.UiTests.PageObjects
                 return element.Enabled;
             });
         }
+
+        protected void DisplayedOfElement(IWebElement element)
+        {
+            webDriver.Wait.Until<bool>(driver =>
+            {
+                return element.Displayed;
+            });
+        }
     }
 }

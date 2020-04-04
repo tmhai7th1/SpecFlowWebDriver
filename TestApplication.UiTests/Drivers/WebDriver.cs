@@ -31,8 +31,7 @@ namespace TestApplication.UiTests.Drivers
 
         private IWebDriver GetWebDriver()
         {
-            string testBrowserId = Environment.GetEnvironmentVariable("Test_Browser");
-            return _browserSeleniumDriverFactory.GetForBrowser(testBrowserId);
+            return _browserSeleniumDriverFactory.GetForBrowser();
         }
 
         public void Dispose()

@@ -58,10 +58,14 @@ namespace TestApplication.UiTests.PageObjects
 
         public void ClickImagesButton()
         {
-            var imagesButton = FindsBy(By.CssSelector("div[class='vip-ad-image__legend'] button"));
-            string contentImage = imagesButton.Text.Trim();
-            countImage = Int32.Parse(contentImage.Replace("images", "")) -1;
+            var imagesButton = FindsBy(By.CssSelector("div[class='vip-ad-image__main-image-wrapper'] div[class='vip-ad-image__legend'] button"));
+            if (imagesButton != null && imagesButton.Text != string.Empty)
+            {
+                string contentImage = imagesButton.Text.Trim();
+                countImage = Int32.Parse(contentImage.Replace("images", "")) - 1;
+            }
 
+            EnableOfElement(imagesButton);
             Actions actions = new Actions(webDriver.Current);
             actions.MoveToElement(imagesButton).Click();
             actions.Perform();

@@ -18,9 +18,9 @@ namespace TestApplication.UiTests.Drivers
             _testRunContext = testRunContext;
         }
 
-        public IWebDriver GetForBrowser(string browserId)
+        public IWebDriver GetForBrowser()
         {
-            string lowerBrowserId = browserId.ToUpper();
+            string lowerBrowserId = _configurationDriver.Browser.ToUpper();
             switch (lowerBrowserId)
             {
                 case "IE": return GetInternetExplorerDriver();

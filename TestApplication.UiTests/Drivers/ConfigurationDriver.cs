@@ -7,6 +7,7 @@ namespace TestApplication.UiTests.Drivers
     public class ConfigurationDriver
     {
         private const string SeleniumBaseUrlConfigFieldName = "seleniumBaseUrl";
+        private const string BrowserConfigFieldName = "browser";
         private readonly Lazy<IConfiguration> _configurationLazy;
 
         public ConfigurationDriver()
@@ -17,6 +18,7 @@ namespace TestApplication.UiTests.Drivers
         public IConfiguration Configuration => _configurationLazy.Value;
 
         public string SeleniumBaseUrl => Configuration[SeleniumBaseUrlConfigFieldName];
+        public string Browser => Configuration[BrowserConfigFieldName];
 
         private IConfiguration GetConfiguration()
         {

@@ -2,39 +2,33 @@
 using TechTalk.SpecFlow;
 using TestApplication.UiTests.PageObjects;
 
-namespace TestApplication.UiTests
+namespace TestApplication.UiTests.Steps
 {
     [Binding]
     public class GumtreeFeatureSteps
     {
         private readonly HomePage _homePage;
-        private  SearchResultPage _searchResultPage;
+        private SearchResultPage _searchResultPage;
+
         public GumtreeFeatureSteps(HomePage homePage)
         {
             _homePage = homePage;
         }
-
-        [Given(@"I go on Gumtree website")]
-        public void GivenIGoOnGumtreeWebsite()
-        {
-            _homePage.GoToHomePage();
-
-        }
         
-        [When(@"I search on Gumtree")]
-        public void WhenISearchOnGumtree()
+        [When(@"I search Categories '(.*)' and Keywords '(.*)' and Location '(.*)' and Radius '(.*)'")]
+        public void WhenISearchCategoriesAndKeywordsAndLocationAndRadius(string categories, string keywords, string location, string radius)
         {
             _homePage.SelectedBoxCategory();
-            _homePage.SelectedCategory();
-            _homePage.EnterSearchQuery("Toyota");
-            _homePage.EnterSearchLocation("Wollongong Region, NSW");
+            _homePage.SelectedCategory(categories);
+            _homePage.EnterSearchQuery(keywords.Trim());
+            _homePage.EnterSearchLocation(location.Trim());
             _homePage.SelectedBoxSearchDistance();
-            _homePage.SelectedSearchDistance();
+            _homePage.SelectedSearchDistance(radius);
             _searchResultPage = _homePage.ClickSearchButton();
         }
         
-        [When(@"I click on Page Number of the pager")]
-        public void WhenIClickOnPageNumberOfThePager()
+        [When(@"I click on page mumber of the pager")]
+        public void WhenIClickOnPageMumberOfThePager()
         {
             string contentLabel = _searchResultPage.GetLabelResult();
             contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
@@ -46,19 +40,19 @@ namespace TestApplication.UiTests
             contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
         }
         
-        [When(@"I click  on a random advert on this page")]
+        [When(@"I click on a random advert on this page")]
         public void WhenIClickOnARandomAdvertOnThisPage()
         {
             _searchResultPage.ClickItemTopAdResult();
         }
         
-        [When(@"I click  on Images button on advert")]
+        [When(@"I click on Images button on advert")]
         public void WhenIClickOnImagesButtonOnAdvert()
-        { 
+        {
             _searchResultPage.ClickImagesButton();
         }
         
-        [Then(@"I cycle through all available images by clicking the right  slider")]
+        [Then(@"I cycle through all available images by clicking the right slider")]
         public void ThenICycleThroughAllAvailableImagesByClickingTheRightSlider()
         {
             _searchResultPage.ClickButtonNextImage();
