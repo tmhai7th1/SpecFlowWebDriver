@@ -22,5 +22,13 @@ namespace TestApplication.UiTests.PageObjects
         {
             return new List<IWebElement>(webDriver.Wait.Until(d => d.FindElements(locator)));
         }
+
+        protected void EnableOfElement(IWebElement element)
+        {
+            webDriver.Wait.Until<bool>(driver =>
+            {
+                return element.Enabled;
+            });
+        }
     }
 }

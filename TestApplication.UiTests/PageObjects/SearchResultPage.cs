@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -29,61 +30,30 @@ namespace TestApplication.UiTests.PageObjects
         {
             lstPageNumber = FindsBys(By.CssSelector("div[class='page-number-navigation'] a"));
             IWebElement element = lstPageNumber[2];
-            webDriver.Wait.Until<bool>(driver =>
-            {
-                try
-                {
-                    return element.Enabled;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            });
-        
+            EnableOfElement(element);
             element.Click();
         }
 
         public void ClickPageNumber3()
         {
            IWebElement element = lstPageNumber[3];
-           webDriver.Wait.Until<bool>(driver =>
-                {
-                    try
-                    {
-                        return element.Enabled;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                });
-
+            EnableOfElement(element);
             element.Click();
         }
 
         public void ClickPageNumber4()
         {
             IWebElement element = lstPageNumber[4];
-            webDriver.Wait.Until<bool>(driver =>
-            {
-                try
-                {
-                    return element.Enabled;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            });
-
+            EnableOfElement(element);
             element.Click();
         }
 
         public void ClickItemTopAdResult()
         {
-           var lstItem = FindsBys(By.CssSelector("section[class^='search-results-page__'] div[class*='panel-body--flat-panel-shadow'] a[id^='user-ad-']"));
-           lstItem[3].Click();
+            var lstItem = FindsBys(By.CssSelector("section[class^='search-results-page__'] div[class*='panel-body--flat-panel-shadow'] a[id^='user-ad-']"));
+            Random random = new Random();
+            int index = random.Next(0, lstItem.Count -1);
+            lstItem[index].Click();
         }
 
         public void ClickImagesButton()
@@ -91,7 +61,10 @@ namespace TestApplication.UiTests.PageObjects
             var imagesButton = FindsBy(By.CssSelector("div[class='vip-ad-image__legend'] button"));
             string contentImage = imagesButton.Text.Trim();
             countImage = Int32.Parse(contentImage.Replace("images", "")) -1;
-            imagesButton.Click();
+
+            Actions actions = new Actions(webDriver.Current);
+            actions.MoveToElement(imagesButton).Click();
+            actions.Perform();
         }
 
         public void ClickButtonNextImage()
@@ -99,17 +72,7 @@ namespace TestApplication.UiTests.PageObjects
             var buttonNextImage = FindsBy(By.CssSelector("div[class='vip-ad-gallery__controls'] button[class$='__nav-btn--next']"));
             for (int i = 0; i < countImage; i++)
             {
-                webDriver.Wait.Until<bool>(driver =>
-                {
-                    try
-                    {
-                        return buttonNextImage.Enabled;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                });
+                EnableOfElement(buttonNextImage);
                 buttonNextImage.Click();
             }
         }

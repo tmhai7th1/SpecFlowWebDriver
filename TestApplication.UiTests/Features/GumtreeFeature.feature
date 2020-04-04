@@ -5,7 +5,7 @@
 	I click on Images button on advert
 	I cycle through all available images by clicking the right slider
 
-@Browser_Firefox
+@Browser_Chrome
 @BasePage
 Scenario: Verify search engine from Gumtree
 	Given I go on Gumtree website

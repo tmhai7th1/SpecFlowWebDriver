@@ -1,20 +1,20 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using TestApplication.UiTests.Drivers;
 
 namespace TestApplication.UiTests.PageObjects
 {
     public class HomePage : BasePage
     {
-        public HomePage(WebDriver driver) : base(driver) { }
+        private readonly ConfigurationDriver _configurationDriver;
+        public HomePage(WebDriver driver, ConfigurationDriver configurationDriver) : base(driver) {
+            _configurationDriver = configurationDriver;
+        }
 
-        public void GoToHomePage(string url)
+        public void GoToHomePage()
         {
+            string baseUrl = _configurationDriver.SeleniumBaseUrl;
             webDriver.Current.Manage().Window.Maximize();
-            webDriver.Current.Navigate().GoToUrl(url);
+            webDriver.Current.Navigate().GoToUrl($"{baseUrl}/");
         }
 
         public void SelectedBoxCategory ()
@@ -26,6 +26,7 @@ namespace TestApplication.UiTests.PageObjects
         public void SelectedCategory()
         {
             var categoryIdoption = FindsBy(By.Id("categoryId-wrp-option-9299"));
+            EnableOfElement(categoryIdoption);
             categoryIdoption.Click();
         }
 

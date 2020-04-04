@@ -75,15 +75,15 @@ namespace TestApplication.UiTests.Features
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree", new string[] {
-                "Browser_Firefox",
+                "Browser_Chrome",
                 "BasePage"}, SourceLine=9)]
         public virtual void VerifySearchEngineFromGumtree()
         {
             string[] tagsOfScenario = new string[] {
-                    "Browser_Firefox",
+                    "Browser_Chrome",
                     "BasePage"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify search engine from Gumtree", null, new string[] {
-                        "Browser_Firefox",
+                        "Browser_Chrome",
                         "BasePage"});
 #line 10
 this.ScenarioInitialize(scenarioInfo);

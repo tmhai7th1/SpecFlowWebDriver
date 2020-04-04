@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using System;
 using TechTalk.SpecFlow;
 using TestApplication.UiTests.PageObjects;
 
@@ -18,7 +17,7 @@ namespace TestApplication.UiTests
         [Given(@"I go on Gumtree website")]
         public void GivenIGoOnGumtreeWebsite()
         {
-            _homePage.GoToHomePage("https://www.gumtree.com.au");
+            _homePage.GoToHomePage();
 
         }
         
@@ -55,7 +54,7 @@ namespace TestApplication.UiTests
         
         [When(@"I click  on Images button on advert")]
         public void WhenIClickOnImagesButtonOnAdvert()
-        {
+        { 
             _searchResultPage.ClickImagesButton();
         }
         

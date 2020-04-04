@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">D:\Source\Freelancer Project\Project\TestApplication.UiTests\obj\project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.9.3</NuGetToolVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <None Include="$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\contentFiles\any\any\SpecRunTestProfile.xsd" Condition="Exists('$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\contentFiles\any\any\SpecRunTestProfile.xsd')">
+      <NuGetPackageId>SpecRun.SpecFlow.3-1-0</NuGetPackageId>
+      <NuGetPackageVersion>3.2.13</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>SpecRunTestProfile.xsd</TargetPath>
+      <Private>True</Private>
+      <Link>SpecRunTestProfile.xsd</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\contentFiles\any\any\SpecRunTestProfile_2011_09.xsd" Condition="Exists('$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\contentFiles\any\any\SpecRunTestProfile_2011_09.xsd')">
+      <NuGetPackageId>SpecRun.SpecFlow.3-1-0</NuGetPackageId>
+      <NuGetPackageVersion>3.2.13</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>SpecRunTestProfile_2011_09.xsd</TargetPath>
+      <Private>True</Private>
+      <Link>SpecRunTestProfile_2011_09.xsd</Link>
+    </None>
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\16.5.0\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\16.5.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props')" />
+    <Import Project="$(NuGetPackageRoot)specrun.runner\3.2.13\build\SpecRun.Runner.props" Condition="Exists('$(NuGetPackageRoot)specrun.runner\3.2.13\build\SpecRun.Runner.props')" />
+    <Import Project="$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\build\SpecRun.SpecFlow.3-1-0.props" Condition="Exists('$(NuGetPackageRoot)specrun.specflow.3-1-0\3.2.13\build\SpecRun.SpecFlow.3-1-0.props')" />
+    <Import Project="$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.1.89\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.1.89\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+    <Import Project="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\build\netcoreapp2.1\Microsoft.NETCore.App.props" Condition="Exists('C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\build\netcoreapp2.1\Microsoft.NETCore.App.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\10.0.3</PkgNewtonsoft_Json>
+    <PkgSpecRun_Runner Condition=" '$(PkgSpecRun_Runner)' == '' ">C:\Users\Administrator\.nuget\packages\specrun.runner\3.2.13</PkgSpecRun_Runner>
+    <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\Administrator\.nuget\packages\bodi\1.4.1</PkgBoDi>
+  </PropertyGroup>
+</Project>
