@@ -131,7 +131,6 @@ namespace TestApplication.UiTests.PageObjects
         public void SelectedSearchDistance(string text)
         {
            var numberRadius = text.Replace("KM", "");
-            Console.WriteLine("---------tttttttttttt-------:" + "srch-radius-wrp-option-" + numberRadius.Trim() + "");
            var searchDistance = FindsBy(By.Id("srch-radius-wrp-option-"+ numberRadius.Trim()+""));
             searchDistance.Click();
         }
