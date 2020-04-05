@@ -1,4 +1,3 @@
-### Setting up a Project
 # TechnicalTest Project
 This project was created to be able to run web ui tests for multiple browsers with Selenium and SpecFlow.
 This project also takes a screenshot after each step and embeds the screnshot in the final report
