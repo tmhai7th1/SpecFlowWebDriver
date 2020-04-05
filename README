@@ -4,3 +4,5 @@ This project also takes a screenshot after each step and embeds the screnshot in
 Configures SpecFlow to be able to easily use Selenium for WebTesting
 Creating automated web tests to test an application in addition to testing the application with unit tests is a good practice. 
 SpecFlow supports behavior driven development and acceptance tests driven development.
+
+## Important parts
