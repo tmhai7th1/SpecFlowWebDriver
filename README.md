@@ -13,5 +13,16 @@ SpecFlow supports behavior driven development and acceptance tests driven develo
 - Install visual studio 2017
 - Install Nuget
 - Install the SpecFlow Visual Studio extension
-- Net core 2.1
+- .Net core 2.1
 
+### Important parts
+#### test-appsettings.json
+Browser type and url default are defined here. System supports Chrome, Explorer and Firefox, which are set value the same CHROME, IE, FIREFOX 
+
+```
+{
+  "BaseUrl": "https://www.gumtree.com.au",
+  "browser": "CHROME"
+}
+
+```
