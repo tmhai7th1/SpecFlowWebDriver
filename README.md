@@ -17,7 +17,7 @@ SpecFlow supports behavior driven development and acceptance tests driven develo
 
 ### Important parts
 #### test-appsettings.json
-Browser type and url default are defined here. System supports Chrome, Explorer and Firefox, which are set value the same CHROME, IE, FIREFOX 
+Browser type and url default are defined here. System supports 3 browsers such as Chrome, Explorer and Firefox, which are set value the same CHROME, IE, FIREFOX 
 
 ```
 {
@@ -26,3 +26,5 @@ Browser type and url default are defined here. System supports Chrome, Explorer 
 }
 
 ```
+#### GumtreeFeature.feature
+Here are the scenarios defined.
