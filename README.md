@@ -8,3 +8,10 @@ Configures SpecFlow to be able to easily use Selenium for WebTesting
 Creating automated web tests to test an application in addition to testing the application with unit tests is a good practice. 
 
 SpecFlow supports behavior driven development and acceptance tests driven development.
+
+### set up environment build project
+- Install visual studio 2017
+- Install Nuget
+- Install the SpecFlow Visual Studio extension
+- Net core 2.1
+
