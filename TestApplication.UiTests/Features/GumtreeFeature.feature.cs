@@ -74,17 +74,16 @@ namespace TestApplication.UiTests.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree", new string[] {
-                "Browser_Firefox",
-                "BasePage"}, SourceLine=9)]
-        public virtual void VerifySearchEngineFromGumtree()
+        public virtual void VerifySearchEngineFromGumtree(string categories, string keywords, string locations, string radius, string result, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "Browser_Firefox",
+            string[] @__tags = new string[] {
                     "BasePage"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify search engine from Gumtree", null, new string[] {
-                        "Browser_Firefox",
-                        "BasePage"});
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify search engine from Gumtree", null, @__tags);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,23 +105,42 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 11
- testRunner.When("I search Categories \'Cars & Vehicles;Cars, Vans & Utes\' and Keywords \'Toyota\' and" +
-                        " Location \'Wollongong Region, NSW\' and Radius \'250 KM\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I search Categories \'{0}\' and Keywords \'{1}\' and Location \'{2}\' and  Radius \'{3}\'" +
+                            "", categories, keywords, locations, radius), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.And("I click on page mumber of the pager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The number of results under Most Recent for page and the number of results show i" +
+                            "n label should  be \'{0}\'", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.And("I click on a random advert on this page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on a random advert on  this page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.And("I click on Images button on advert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on Images button on   advert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
- testRunner.Then("I cycle through all available images by clicking the right slider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I cycle through all available images by clicking the  right slider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Cars & Vehicles;Cars, Vans & Utes", new string[] {
+                "BasePage"}, SourceLine=18)]
+        public virtual void VerifySearchEngineFromGumtree_CarsVehiclesCarsVansUtes()
+        {
+#line 10
+this.VerifySearchEngineFromGumtree("Cars & Vehicles;Cars, Vans & Utes", "Toyota", "Wollongong Region, NSW", "250 KM", "24", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Cars & Vehicles;Mechanics & Garages", new string[] {
+                "BasePage"}, SourceLine=18)]
+        public virtual void VerifySearchEngineFromGumtree_CarsVehiclesMechanicsGarages()
+        {
+#line 10
+this.VerifySearchEngineFromGumtree("Cars & Vehicles;Mechanics & Garages", "Toyota", "Wollongong Region, NSW", "50 KM", "24", ((string[])(null)));
+#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]

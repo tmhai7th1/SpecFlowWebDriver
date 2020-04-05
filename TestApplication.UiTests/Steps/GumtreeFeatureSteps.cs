@@ -2,6 +2,7 @@
 using TechTalk.SpecFlow;
 using TestApplication.UiTests.PageObjects;
 
+
 namespace TestApplication.UiTests.Steps
 {
     [Binding]
@@ -14,8 +15,8 @@ namespace TestApplication.UiTests.Steps
         {
             _homePage = homePage;
         }
-        
-        [When(@"I search Categories '(.*)' and Keywords '(.*)' and Location '(.*)' and Radius '(.*)'")]
+
+        [When(@"I search Categories '(.*)' and Keywords '(.*)' and Location '(.*)' and  Radius '(.*)'")]
         public void WhenISearchCategoriesAndKeywordsAndLocationAndRadius(string categories, string keywords, string location, string radius)
         {
             _homePage.SelectedBoxCategory();
@@ -27,32 +28,34 @@ namespace TestApplication.UiTests.Steps
             _searchResultPage = _homePage.ClickSearchButton();
         }
         
-        [When(@"I click on page mumber of the pager")]
-        public void WhenIClickOnPageMumberOfThePager()
+        [When(@"The number of results under Most Recent for page and the number of results show in label should  be '(.*)'")]
+        public void WhenTheNumberOfResultsUnderMostRecentForPageAndTheNumberOfResultsShowInLabelShouldBe(string result)
         {
             string contentLabel = _searchResultPage.GetLabelResult();
-            contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
+            contentLabel.Should().Contain(result);
+            int numberResult = int.Parse(result.Trim());
+            _searchResultPage.GetNumbertOfMostRecentResult().Should().Be(numberResult);
             _searchResultPage.ClickPageNumber2();
-            contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
+            _searchResultPage.GetNumbertOfMostRecentResult().Should().Be(numberResult);
             _searchResultPage.ClickPageNumber3();
-            contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
+            _searchResultPage.GetNumbertOfMostRecentResult().Should().Be(numberResult);
             _searchResultPage.ClickPageNumber4();
-            contentLabel.Should().Contain(_searchResultPage.GetNumbertOfMostRecentResult().ToString());
+            _searchResultPage.GetNumbertOfMostRecentResult().Should().Be(numberResult);
         }
         
-        [When(@"I click on a random advert on this page")]
+        [When(@"I click on a random advert on  this page")]
         public void WhenIClickOnARandomAdvertOnThisPage()
         {
             _searchResultPage.ClickItemTopAdResult();
         }
         
-        [When(@"I click on Images button on advert")]
+        [When(@"I click on Images button on   advert")]
         public void WhenIClickOnImagesButtonOnAdvert()
         {
             _searchResultPage.ClickImagesButton();
         }
         
-        [Then(@"I cycle through all available images by clicking the right slider")]
+        [Then(@"I cycle through all available images by clicking the  right slider")]
         public void ThenICycleThroughAllAvailableImagesByClickingTheRightSlider()
         {
             _searchResultPage.ClickButtonNextImage();

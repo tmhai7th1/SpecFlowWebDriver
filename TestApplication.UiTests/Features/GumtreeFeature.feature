@@ -8,8 +8,14 @@
 
 @BasePage
 Scenario: Verify search engine from Gumtree
-	When I search Categories 'Cars & Vehicles;Cars, Vans & Utes' and Keywords 'Toyota' and Location 'Wollongong Region, NSW' and Radius '250 KM'
-	And I click on page mumber of the pager
-	And I click on a random advert on this page
-	And I click on Images button on advert
-	Then I cycle through all available images by clicking the right slider
+	When I search Categories '<Categories>' and Keywords '<Keywords>' and Location '<Locations>' and  Radius '<Radius>'
+	And The number of results under Most Recent for page and the number of results show in label should  be '<Result>'
+	And I click on a random advert on  this page
+	And I click on Images button on   advert
+	Then I cycle through all available images by clicking the  right slider
+
+Scenarios: 
+	| Categories 							| Keywords 		| Locations 				| Radius | Result |
+	| Cars & Vehicles;Cars, Vans & Utes  	| Toyota        | Wollongong Region, NSW    | 250 KM | 24     |
+	| Cars & Vehicles;Mechanics & Garages   | Toyota        | Wollongong Region, NSW    | 50 KM  | 24     |
+		
