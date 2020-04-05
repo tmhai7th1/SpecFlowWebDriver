@@ -33,4 +33,5 @@ We need download TechnicalTest.zip file form github then unzip it and next step,
  - Open Test Explorer on visual studio
  - Right click in current project, then choose Run selected test
  - Test project will be run with scenario from GumtreeFeature.feature 
+ 
 We get test report "Report.html" form TestResults folder
