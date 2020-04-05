@@ -27,3 +27,10 @@ Browser type and the default url are defined here. Test scripts supports 3 brows
 #### GumtreeFeature.feature
 Here the test scenarios are defined [here](https://github.com/tmhai7th1/TechnicalTest/blob/master/TestApplication.UiTests/Features/GumtreeFeature.feature).
 
+### Run test
+We need download TechnicalTest.zip file form github then unzip it and next step, make sure environment build project should have ready
+ - Clean and build project successfully with visual studio
+ - Open Test Explorer on visual studio
+ - Right click in current project, then choose Run selected test
+ - Test project will be run with scenario from GumtreeFeature.feature 
+We get test report "Report.html" form TestResults folder
