@@ -77,6 +77,7 @@ namespace TestApplication.UiTests.Features
         public virtual void VerifySearchEngineFromGumtree(string categories, string keywords, string locations, string radius, string result, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "Browser_Chrome",
                     "BasePage"};
             if ((exampleTags != null))
             {
@@ -125,21 +126,23 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Cars & Vehicles;Cars, Vans & Utes", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Variant 0", new string[] {
+                "Browser_Chrome",
                 "BasePage"}, SourceLine=18)]
-        public virtual void VerifySearchEngineFromGumtree_CarsVehiclesCarsVansUtes()
+        public virtual void VerifySearchEngineFromGumtree_Variant0()
         {
 #line 10
 this.VerifySearchEngineFromGumtree("Cars & Vehicles;Cars, Vans & Utes", "Toyota", "Wollongong Region, NSW", "250 KM", "24", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Cars & Vehicles;Mechanics & Garages", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Variant 1", new string[] {
+                "Browser_Chrome",
                 "BasePage"}, SourceLine=18)]
-        public virtual void VerifySearchEngineFromGumtree_CarsVehiclesMechanicsGarages()
+        public virtual void VerifySearchEngineFromGumtree_Variant1()
         {
 #line 10
-this.VerifySearchEngineFromGumtree("Cars & Vehicles;Mechanics & Garages", "Toyota", "Wollongong Region, NSW", "50 KM", "24", ((string[])(null)));
+this.VerifySearchEngineFromGumtree("Cars & Vehicles;Cars, Vans & Utes", "Toyota", "Wollongong Region, NSW", "50 KM", "24", ((string[])(null)));
 #line hidden
         }
         
