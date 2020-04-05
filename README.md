@@ -25,4 +25,5 @@ Browser type and the default url are defined here. Test scripts supports 3 brows
 
 ```
 #### GumtreeFeature.feature
-Here the test scenarios are defined.
+Here the test scenarios are defined [here](https://github.com/tmhai7th1/TechnicalTest/blob/master/TestApplication.UiTests/Features/GumtreeFeature.feature).
+
