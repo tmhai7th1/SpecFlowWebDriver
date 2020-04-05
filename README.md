@@ -1,9 +1,7 @@
 ## TechnicalTest Project
-This project was created to be able to run web ui tests for multiple browsers with Selenium and SpecFlow. 
+This project is created to be able to run web ui tests for multiple browsers using C# with Selenium and SpecFlow, and also it has been confgured with screenshot capability after each step and embeds the screnshot in the final report.
 
-This project also takes a screenshot after each step and embeds the screnshot in the final report 
-
-Configures SpecFlow to be able to easily use Selenium for WebTesting
+The test automation framework is completely object oriented, and the page object model has been implemented in the project.
 
 Creating automated web tests to test an application in addition to testing the application with unit tests is a good practice. 
 
@@ -17,7 +15,7 @@ SpecFlow supports behavior driven development and acceptance tests driven develo
 
 ### Important parts
 #### test-appsettings.json
-Browser type and url default are defined here. System supports 3 browsers such as Chrome, Explorer and Firefox, which are set value the same CHROME, IE, FIREFOX 
+Browser type and the default url are defined here. Test scripts supports 3 browsers such as Chrome, Explorer and Firefox, which are set with the value as CHROME, IE, FIREFOX 
 
 ```
 {
@@ -27,4 +25,4 @@ Browser type and url default are defined here. System supports 3 browsers such a
 
 ```
 #### GumtreeFeature.feature
-Here are the scenarios defined.
+Here the test scenarios are defined.
