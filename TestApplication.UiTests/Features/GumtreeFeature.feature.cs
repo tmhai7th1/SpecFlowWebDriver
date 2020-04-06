@@ -77,7 +77,6 @@ namespace TestApplication.UiTests.Features
         public virtual void VerifySearchEngineFromGumtree(string categories, string keywords, string locations, string radius, string result, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Browser_Chrome",
                     "BasePage"};
             if ((exampleTags != null))
             {
@@ -85,7 +84,7 @@ namespace TestApplication.UiTests.Features
             }
             string[] tagsOfScenario = @__tags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify search engine from Gumtree", null, @__tags);
-#line 10
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -105,21 +104,21 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 11
+#line 10
  testRunner.When(string.Format("I search Categories \'{0}\' and Keywords \'{1}\' and Location \'{2}\' and  Radius \'{3}\'" +
                             "", categories, keywords, locations, radius), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 11
  testRunner.And(string.Format("The number of results under Most Recent for page and the number of results show i" +
                             "n label should  be \'{0}\'", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 13
+#line 12
  testRunner.And("I click on a random advert on  this page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 13
  testRunner.And("I click on Images button on   advert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 14
  testRunner.Then("I cycle through all available images by clicking the  right slider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -127,21 +126,19 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Variant 0", new string[] {
-                "Browser_Chrome",
-                "BasePage"}, SourceLine=18)]
+                "BasePage"}, SourceLine=17)]
         public virtual void VerifySearchEngineFromGumtree_Variant0()
         {
-#line 10
+#line 9
 this.VerifySearchEngineFromGumtree("Cars & Vehicles;Cars, Vans & Utes", "Toyota", "Wollongong Region, NSW", "250 KM", "24", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Verify search engine from Gumtree, Variant 1", new string[] {
-                "Browser_Chrome",
-                "BasePage"}, SourceLine=18)]
+                "BasePage"}, SourceLine=17)]
         public virtual void VerifySearchEngineFromGumtree_Variant1()
         {
-#line 10
+#line 9
 this.VerifySearchEngineFromGumtree("Cars & Vehicles;Cars, Vans & Utes", "Toyota", "Wollongong Region, NSW", "50 KM", "24", ((string[])(null)));
 #line hidden
         }
